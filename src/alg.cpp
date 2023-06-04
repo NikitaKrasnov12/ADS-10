@@ -7,15 +7,8 @@
 #include  "tree.h"
 
 std::vector<char> getPerm(const Tree& tree, int n) {
-  std::vector<char> answer;
-  if ( tree.rearrangements.size() < n ) {
-       answer.push_back('1');
-       answer.clear();
-    } else {
-        answer = tree.rearrangements[n - 1];
-        reverse(answer.begin(), answer.end());
-        answer.pop_back();
-        reverse(answer.begin(), answer.end());
-    }
-    return answer;
+  if (n - 1 > tree.rearrangements.size()) {
+            return std::vector<char>();
+  }
+  return tree.rearrangements[n - 1];
 }
