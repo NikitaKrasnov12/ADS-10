@@ -54,5 +54,11 @@ class Tree {
     createRearrangements(root, goVec);
     createRearrangementTree(manyNum, root);
   }
+  std::vector<char> getOrdPerm(int n)const {
+        if (n - 1 > tree.rearrangements.size()) {
+            return std::vector<char>();
+        }
+        return tree.rearrangements[n - 1];
+  }
 };
 #endif  // INCLUDE_TREE_H_
