@@ -12,18 +12,6 @@ class Tree {
  private:
   std::vector<char> manyNum;
   Node* root = nullptr;
-  void createRearrangements(Node* node) {
-        if (node->otherNum.empty()) {
-            manyNum.push_back(node->num);
-            rearrangements.push_back(manyNum);
-            manyNum.pop_back();
-        }
-        for (Node* otherNums : node->otherNum) {
-            manyNum.push_back(node->num);
-            createRearrangements(otherNums);
-            manyNum.pop_back();
-        }
-  }
   void createRearrangementTree(Node* node, std::vector<char> other) {
         if (other.empty()) {
             return;
@@ -38,8 +26,19 @@ class Tree {
                 notall.end());
             createRearrangementTree(root1, notall);
         }
-    }
-
+  }
+  void createRearrangements(Node* node) {
+        if (node->otherNum.empty()) {
+            manyNum.push_back(node->num);
+            rearrangements.push_back(manyNum);
+            manyNum.pop_back();
+        }
+        for (Node* otherNums : node->otherNum) {
+            manyNum.push_back(node->num);
+            createRearrangements(otherNums);
+            manyNum.pop_back();
+        }
+  }
  public:
   std::vector<std::vector<char>> rearrangements;
   explicit Tree(const std::vector<char> numbers) {
