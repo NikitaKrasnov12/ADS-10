@@ -4,29 +4,33 @@
 #include <vector>
 #include <algorithm>
 
+struct Node {
+    std::vector<Node*> otherNum;
+    char num;
+};
 class Tree {
  private:
-  struct Node {
-  char num;
-  std::vector<Node*> otherNum;
-};
-  std::vector<char> manyNum;
   Node* root;
-  void createRearrangementTree(Node* node, std::vector<char> other) {
+    std::vector<char> manyNum;
+    void createRearrangementTree(std::vector<char> other, Node* node) {
         if (other.empty()) {
             return;
         }
-        for (auto ot : other) {
+        int j = 0;
+        for (int i = 0; i < other.size(); i++) {
             Node* root1 = new Node;
-            root1->num = ot;
+            root1->num = other[i];
             node->otherNum.push_back(root1);
-            std::vector<char> notall = other;
-            notall.erase(
-                std::remove(notall.begin(), notall.end(), ot),
-                notall.end());
-            createRearrangementTree(root1, notall);
+            std::vector<char> notall;
+            for (char j : other) {
+                if (j == other[i]) {
+                    continue;
+                }
+                notall.push_back(j);
+            }
+            createRearrangementTree(notall, root1);
         }
-  }
+    }
   void createRearrangements(Node* node) {
         if (node->otherNum.empty()) {
             manyNum.push_back(node->num);
@@ -46,7 +50,7 @@ class Tree {
     root = new Node;
     root->num = '*';
     createRearrangements(root);
-    createRearrangementTree(root, other);
+    createRearrangementTree(root);
   }
 };
 #endif  // INCLUDE_TREE_H_
