@@ -33,20 +33,20 @@ class Tree {
             rearrangements.push_back(manyNum);
             manyNum.pop_back();
         }
-        for (Node* otherNums : node->otherNum) {
+        for (Node* root1 : node->otherNum) {
             manyNum.push_back(node->num);
-            createRearrangements(otherNums);
+            createRearrangements(root1);
             manyNum.pop_back();
         }
   }
 
  public:
   std::vector<std::vector<char>> rearrangements;
-  explicit Tree(const std::vector<char> numbers) {
+  explicit Tree(const std::vector<char> other) {
     root = new Node;
     root->num = '*';
     createRearrangements(root);
-    createRearrangementTree(root, numbers);
+    createRearrangementTree(root, other);
   }
 };
 #endif  // INCLUDE_TREE_H_
