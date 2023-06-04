@@ -2,7 +2,6 @@
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
 #include <vector>
-#include <algorithm>
 
 class Tree {
  private:
@@ -32,16 +31,16 @@ class Tree {
             createRearrangementTree(notall, root1);
         }
     }
-    void createRearrangements(Node* node1, std::vector<char> nowVal) {
-        if (node1->num) {
-            nowVal.push_back(node1->num);
+    void createRearrangements(Node* node2, std::vector<char> nowVal) {
+        if (node2->num) {
+            nowVal.push_back(node2->num);
         }
-        if (node1->otherNum.empty()) {
+        if (node2->otherNum.empty()) {
             rearrangements.push_back(nowVal);
             return;
         }
-        for (int i = 0; i < node1->otherNum.size(); i++) {
-            createRearrangements(node1->otherNum[i], nowVal);
+        for (int i = 0; i < node2->otherNum.size(); i++) {
+            createRearrangements(node2->otherNum[i], nowVal);
         }
     }
 
