@@ -12,14 +12,14 @@ class Tree {
   std::vector<char> manyNum;
   Node* root;
   void createRearrangements(Node* node) {
-        if (node->manyNum.empty()) {
+        if (node->otherNum.empty()) {
             manyNum.push_back(node->num);
             rearrangements.push_back(manyNum);
             manyNum.pop_back();
         }
         for (Node* otherNums : node->otherNum) {
             manyNum.push_back(node->num);
-            generateRearrangements(otherNums);
+            createRearrangements(otherNums);
             manyNum.pop_back();
         }
   }
@@ -38,7 +38,7 @@ class Tree {
                 }
                 otherVec.push_back(u);
             }
-            createRearrangementTree(otherVec, root1);
+            createRearrangementTree(root1, otherVec);
         }
     }
 
