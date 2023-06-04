@@ -47,10 +47,12 @@ class Tree {
  public:
   std::vector<std::vector<char>> rearrangements;
   explicit Tree(const std::vector<char> other) {
+    manyNum = other;
+    std::vector<char> goVec;
     root = new Node;
-    root->num = '*';
-    createRearrangements(root);
-    createRearrangementTree(root);
+    root->num = 0;
+    createRearrangements(root, goVec);
+    createRearrangementTree(manyNum, root);
   }
 };
 #endif  // INCLUDE_TREE_H_
