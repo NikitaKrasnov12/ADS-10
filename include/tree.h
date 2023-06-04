@@ -10,7 +10,7 @@ struct Node {
 class Tree {
  private:
   std::vector<char> manyNum;
-  Node* root;
+  Node* root==nullptr;
   void createRearrangements(Node* node) {
         if (node->otherNum.empty()) {
             manyNum.push_back(node->num);
@@ -27,18 +27,15 @@ class Tree {
         if (other.empty()) {
             return;
         }
-        for (int i = 0; i < other.size(); i++) {
+        for (auto ot : other) {
             Node* root1 = new Node;
-            root1->num = other[i];
-            node->otherNum.push_back(root1);
-            std::vector<char> otherVec;
-            for (char u : other) {
-                if (u == other[i]) {
-                    continue;
-                }
-                otherVec.push_back(u);
-            }
-            createRearrangementTree(root1, otherVec);
+            root1->num = ot;
+            node->children.push_back(root1);
+            std::vector<char> notall = other;
+            remaining.erase(
+                std::remove(notall.begin(), notall.end(), ot),
+                notall.end());
+            createRearrangementTree(notall, root1);
         }
     }
 
