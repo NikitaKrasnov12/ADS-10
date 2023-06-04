@@ -4,14 +4,14 @@
 #include <vector>
 #include <algorithm>
 
-struct Node {
+class Tree {
+ private:
+  struct Node {
   char num;
   std::vector<Node*> otherNum;
 };
-class Tree {
- private:
   std::vector<char> manyNum;
-  Node* root = nullptr;
+  Node* root;
   void createRearrangementTree(Node* node, std::vector<char> other) {
         if (other.empty()) {
             return;
