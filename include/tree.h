@@ -41,6 +41,7 @@ class Tree {
             createRearrangementTree(otherVec, root1);
         }
     }
+
  public:
   std::vector<std::vector<char>> rearrangements;
   explicit Tree (const std::vector<char>& numbers){
