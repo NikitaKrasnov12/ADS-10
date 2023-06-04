@@ -3,10 +3,6 @@
 #define INCLUDE_TREE_H_
 #include <vector>
 
-struct Node {
-        char num;
-        std::vector<Tree*> otherNum;
-};
 class Tree {
  private:
     struct Node {
