@@ -51,7 +51,7 @@ class Tree {
     std::vector<char> goVec;
     root = new Node;
     root->num = 0;
-    createRearrangements(root, goVec);
+    createRearrangements(root);
     createRearrangementTree(manyNum, root);
   }
 };
