@@ -12,7 +12,7 @@ class Tree {
     std::vector<std::vector<char>> rearrangements;
     Node* root;
     std::vector<char> manyNum;
-    void createRearrangementTree(std::vector<char> other, Node* node1) {
+    void createRearrangementTree( Node* node1, std::vector<char> other) {
         if (other.empty()) {
             return;
         }
@@ -28,7 +28,7 @@ class Tree {
                 }
                 notall.push_back(k);
             }
-            createRearrangementTree(notall, root1);
+            createRearrangementTree(root1, notall);
         }
     }
     void createRearrangements(Node* node2, std::vector<char> nowVal) {
@@ -51,7 +51,7 @@ class Tree {
     root = new Node;
     root->num = 0;
     createRearrangements(root, goVec);
-    createRearrangementTree(manyNum, root);
+    createRearrangementTree( root, manyNum);
   }
   std::vector<char> getOrdPerm(int n)const {
         if (n - 1 > rearrangements.size()) {
