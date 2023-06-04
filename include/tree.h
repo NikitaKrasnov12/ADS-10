@@ -2,6 +2,7 @@
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
 #include <vector>
+#include <algorithm>
 
 struct Node {
   char num;
@@ -30,9 +31,9 @@ class Tree {
         for (auto ot : other) {
             Node* root1 = new Node;
             root1->num = ot;
-            node->children.push_back(root1);
+            node->otherNum.push_back(root1);
             std::vector<char> notall = other;
-            remaining.erase(
+            notall.erase(
                 std::remove(notall.begin(), notall.end(), ot),
                 notall.end());
             createRearrangementTree(notall, root1);
