@@ -6,5 +6,8 @@
 #include  "tree.h"
 
 std::vector<char> getPerm(const Tree& tree, int n) {
-  // напишите реализацию
+  if (n - 1 > tree.rearrangements.size()) {
+    return std::vector<char>();
+  }
+  return tree.rearrangements[n - 1];
 }
