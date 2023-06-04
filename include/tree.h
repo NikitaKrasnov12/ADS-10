@@ -39,6 +39,7 @@ class Tree {
             manyNum.pop_back();
         }
   }
+
  public:
   std::vector<std::vector<char>> rearrangements;
   explicit Tree(const std::vector<char> numbers) {
