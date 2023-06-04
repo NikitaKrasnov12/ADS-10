@@ -1,6 +1,7 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
+#include <vector>
 
 struct Node {
   char num;
@@ -40,7 +41,6 @@ class Tree {
             createRearrangementTree(otherVec, root1);
         }
     }
- 
  public:
   std::vector<std::vector<char>> rearrangements;
   explicit Tree (const std::vector<char>& numbers){
@@ -51,4 +51,5 @@ class Tree {
     createRearrangements(root);
     createRearrangementTree(root, numbers);
   }
+};
 #endif  // INCLUDE_TREE_H_
