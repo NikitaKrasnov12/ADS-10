@@ -44,7 +44,7 @@ class Tree {
 
  public:
   std::vector<std::vector<char>> rearrangements;
-  explicit Tree (const std::vector<char>& numbers){
+  explicit Tree (const std::vector<char>& numbers) {
     std::vector<char> goVec;
     manyNum = numbers;
     root = new Node;
