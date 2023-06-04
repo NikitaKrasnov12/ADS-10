@@ -29,7 +29,7 @@ class Tree {
         }
         for (int i = 0; i < other.size(); i++) {
             Node* root1 = new Node;
-            root1->number = other[i];
+            root1->num = other[i];
             node->otherNum.push_back(root1);
             std::vector<char> otherVec;
             for (char u : other) {
@@ -48,7 +48,7 @@ class Tree {
     std::vector<char> goVec;
     manyNum = numbers;
     root = new Node;
-    root->root1 = 0;
+    root->num = 0;
     createRearrangements(root);
     createRearrangementTree(root, numbers);
   }
