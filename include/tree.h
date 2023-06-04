@@ -10,7 +10,8 @@ struct Node {
 };
 class Tree {
  private:
-  Node* root;
+    std::vector<std::vector<char>> rearrangements;
+    Node* root;
     std::vector<char> manyNum;
     void createRearrangementTree(std::vector<char> other, Node* node) {
         if (other.empty()) {
@@ -45,7 +46,6 @@ class Tree {
     }
 
  public:
-  std::vector<std::vector<char>> rearrangements;
   explicit Tree(const std::vector<char> other) {
     manyNum = other;
     std::vector<char> goVec;
