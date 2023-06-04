@@ -36,7 +36,7 @@ class Tree {
             notall.erase(
                 std::remove(notall.begin(), notall.end(), ot),
                 notall.end());
-            createRearrangementTree(root1,notall);
+            createRearrangementTree(root1, notall);
         }
     }
 
@@ -48,7 +48,7 @@ class Tree {
     root = new Node;
     root->num = 0;
     createRearrangements(root);
-    createRearrangementTree(root, numbers);
+    createRearrangementTree(root, goVec);
   }
 };
 #endif  // INCLUDE_TREE_H_
