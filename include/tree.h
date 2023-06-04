@@ -6,9 +6,13 @@
 struct Node {
         char num;
         std::vector<Tree*> otherNum;
-    };
+};
 class Tree {
-private:
+ private:
+    struct Node {
+        char num;
+        std::vector<Tree*> otherNum;
+    };
     Node* nodeOp;
     explicit Tree(char numSet) {
         nodeOp = new Node;
@@ -23,7 +27,7 @@ private:
         }
     }
 
-public:
+ public:
     explicit Tree(const std::vector<char>& other) {
         nodeOp = new Node;
         nodeOp->num = '*';
