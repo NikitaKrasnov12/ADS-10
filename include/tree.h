@@ -36,7 +36,7 @@ class Tree {
             notall.erase(
                 std::remove(notall.begin(), notall.end(), ot),
                 notall.end());
-            createRearrangementTree(notall, root1);
+            createRearrangementTree(root1,notall);
         }
     }
 
